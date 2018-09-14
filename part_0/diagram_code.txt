@@ -60,4 +60,47 @@ Browser renders the page with the information from the server.
 
 ###########################################################################
 
+title FS@HY exercise 0.5
 
+user->browser: Request page
+note right of user
+User types address https://fullstack-exampleapp.herokuapp.com/spa
+end note
+
+browser->server: GET https://fullstack-exampleapp.herokuapp.com/spa
+server->browser: STATUS 200, HTML for the page
+note right of browser
+HTML needs CSS and JS file
+end note
+browser->server: GET https://fullstack-exampleapp.herokuapp.com/main.css
+server->browser: STATUS 200, main.css
+browser->server: GET https://fullstack-exampleapp.herokuapp.com/spa.js
+server->browser: STATUS 200, spa.js
+note right of browser
+spa.js needs JSON file
+end note
+browser->server: GET https://fullstack-exampleapp.herokuapp.com/data.json
+server->browser: STATUS 200, data.json
+note left of browser
+Browser renders the page with the information from the server.
+
+
+
+###########################################################################
+
+
+title FS@HY exercise 0.6
+
+user->browser: Type a note and click 'Talleta'
+
+note left of browser:
+JS adds item to the list used by browser.
+end note
+browser->server: POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+note left of server:
+The server adds the item to the list on the server.
+end note
+server->browser: STATUS 201 (Created)
+
+
+###########################################################################
