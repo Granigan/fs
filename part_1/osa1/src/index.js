@@ -30,10 +30,16 @@ const Otsikko = (props) => {
 const Sisalto = (props) => {
     return (
         <div>
-            <p>{props.first} {props.first_tasks}</p>
-            <p>{props.second} {props.second_tasks}</p>
-            <p>{props.third} {props.third_tasks}</p>
+            <Osa text={props.first} tasks={props.first_tasks} />
+            <Osa text={props.second} tasks={props.second_tasks} />
+            <Osa text={props.third} tasks={props.third_tasks} />
         </div>
+    )
+}
+
+const Osa = (props) => {
+    return (
+        <p>{props.text} {props.tasks} </p>
     )
 }
 
